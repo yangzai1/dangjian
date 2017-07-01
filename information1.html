@@ -1,0 +1,217 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/style1.css"/>
+		
+	</head>
+
+	<body>
+	
+    <div class="mui-content">
+    	<!-- 导航 -->
+    	<div id="nav-w">
+		    <div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted mui-pull-left">
+				<div class="mui-scroll" id="nav_list">
+					<a class="mui-control-item mui-active" href="###">
+						党建要闻
+					</a>
+					<a class="mui-control-item" href="javascript:;">
+						四合格四诠释
+					</a>
+					<a class="mui-control-item" href="javascript:;">
+						党规党纪
+					</a>
+					<a class="mui-control-item" href="jicengxiu.html">
+						基层秀
+					</a>
+					<a class="mui-control-item" href="javascript:;">
+						数据党建
+					</a>
+				</div>
+			</div>
+			<!--<div  id="right-icon">
+				<span class="mui-icon  mui-icon-plusempty" id="tj"></span>
+			</div>-->
+		</div>
+    	<!-- 导航结束 -->
+    	<!-- 图片轮播 -->
+		<div class="mui-slider">
+			<div id="slider" class="mui-slider">
+				<div class="mui-slider-group mui-slider-loop">
+					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="page4.html">
+							<img src="imgs/biaoti-1.jpg" alt="标题">
+							<p class="mui-slider-title">岁月无语，青春有言—记 “互联网+青年成长交流活动”线下活动</p>
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="page1.html">
+							<img src="imgs/biaoti-1.jpg">
+							<p class="mui-slider-title">中油瑞飞公司举行纪念建党96周年暨七一表彰大会</p>
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="page1.html">
+							<img src="imgs/biaoti-1.jpg">
+							<p class="mui-slider-title">落实全面从严治党责任，加强企业党的建设</p>
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="page1.html">
+							<img src="imgs/biaoti-1.jpg">
+							<p class="mui-slider-title">中油瑞飞公司举办2017年党支部委员培训班</p>
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="page1.html">
+							<img src="imgs/biaoti-1.jpg">
+							<p class="mui-slider-title">岁月无语，青春有言—记 “互联网+青年成长交流活动”线下活动</p>
+						</a>
+					</div>
+					<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="page1.html">
+							<img src="imgs/biaoti-1.jpg">
+							<p class="mui-slider-title">中油瑞飞公司举行纪念建党96周年暨七一表彰大会</p>
+						</a>
+					</div>
+				</div>
+				<div class="mui-slider-indicator mui-text-right">
+					<div class="mui-indicator mui-active"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+				</div>
+			</div>
+
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init({
+				swipeBack:true 
+			});
+		var slider = mui("#slider");
+		document.getElementById("switch").addEventListener('toggle', function(e) {
+			if (e.detail.isActive) {
+				slider.slider({
+					interval: 2000
+				});
+			} else {
+				slider.slider({
+					interval: 0
+				});
+			}
+		});
+		</script>
+  	<!-- 图片轮播结束  -->
+    	<!-- tab 切换 -->
+    	<div class="mui-slider">
+			<!--选项卡标题区-->
+			<div class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+				  <a class="mui-control-item tj-mui-control-item" href="#item1">党委</a>
+				  <a class="mui-control-item tj-mui-control-item" href="#item2">党支部</a>
+			</div>
+			<!--<div class="mui-slider-progress-bar mui-col-xs-4 tj-bottom-bg"></div>-->
+			<div class="mui-slider-group">
+			  <!--第一个选项卡内容区-->
+			  <div id="item1" class="mui-slider-item mui-control-content mui-active">
+			    <ul class="mui-table-view tj-bg">
+				      <li class="mui-table-view-cell">
+				      		<div class="sy-c">
+								<div class="sy-c-l">
+									<img src="imgs/biaoti-1.jpg" alt="">
+								</div>
+								<div class="sy-c-r">
+									中油瑞飞公司举行纪念建党96周年暨七一表彰大会
+								</div>
+								<p class="sy-a-p"><span>2017/6/30 14:34</span></p>
+							</div>
+				      </li>
+				      <li class="mui-table-view-cell" />
+				      		<div class="sy-c">
+								<div class="sy-c-l">
+									<img src="imgs/biaoti-2.jpg" alt="" />
+								</div>
+								<div class="sy-c-r">
+									专题党课：落实全面从严治党责任，加强企业党的建设，提升党建工作科学化水
+								</div>
+								<p class="sy-a-p"><span>2017/6/30 14:34</span></p>
+							</div>
+				      </li>
+				      <li class="mui-table-view-cell">
+				      	<div class="sy-c">
+								<div class="sy-c-l">
+									 <img src="imgs/bg-12.png" alt=" " />
+								</div>
+								<div class="sy-c-r">
+								中油瑞飞公司举办2017年党支部委员培训班
+								</div>
+								<p class="sy-a-p"><span>2017/6/29 14:34</span></p>
+							</div>
+				      </li>
+				      <li class="mui-table-view-cell">
+				      	<div class="sy-c">
+								<div class="sy-c-l">
+									 <img src="imgs/biaoti-4.jpg" alt=" " />
+								</div>
+								<div class="sy-c-r">
+								岁月无语，青春有言—记 “互联网+青年成长交流活动”线下活动
+								</div>
+								<p class="sy-a-p"><span>2017/6/28 15:34</span></p>
+							</div>
+				      </li>
+			    </ul>
+			  </div>
+			  <!--第二个选项卡内容区，页面加载时为空-->
+			  <div id="item2" class="mui-slider-item mui-control-content">
+			    	<ul class="mui-table-view tj-bg">
+				      <li class="mui-table-view-cell">
+				      		<div class="sy-c">
+								<div class="sy-c-l">
+									<img src="imgs/biaoti-5.jpg" alt="">
+								</div>
+								<div class="sy-c-r">
+									系统集成和信息安全党支部七一主题纪念日活动—参观宋庆龄故居，感受伟人情怀
+								</div>
+								<p class="sy-a-p"><span>2017/6/30 08:34</span></p>
+							</div>
+				      </li>
+				      <li class="mui-table-view-cell" />
+				      		<div class="sy-c">
+								<div class="sy-c-l">
+									<img src="imgs/biaoti-6.jpg" alt="" />
+								</div>
+								<div class="sy-c-r">
+									软件服务一支部召开党员大会
+								</div>
+								<p class="sy-a-p"><span>2017/6/28 09:34</span></p>
+							</div>
+				      </li>
+				      <li class="mui-table-view-cell">
+				      	<div class="sy-c">
+								<div class="sy-c-l">
+									 <img src="imgs/biaoti-7.jpg" alt=" " />
+								</div>
+								<div class="sy-c-r">
+									数字油田第二党支部成功举行演讲比赛
+								</div>
+								<p class="sy-a-p"><span>2017/6/28 10:34</span></p>
+							</div>
+				      </li>
+			    </ul>
+			  </div>
+			  <!--第三个选项卡内容区，页面加载时为空
+			  <div id="item3" class="mui-slider-item mui-control-content"></div>-->
+			</div>
+		</div>
+    	<!-- tab切换结束 -->
+    </div>
+	</body>
+
+</html>

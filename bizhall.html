@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="yes" name="apple-touch-fullscreen">
+	<meta content="telephone=no,email=no" name="format-detection">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>组织</title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+     <script src="js/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+    
+	  	mui.init();
+    </script>
+    <script type="text/javascript">
+	    ;(function (win,doc){
+	        function changeSize(){
+	            doc.documentElement.style.fontSize=50*doc.documentElement.clientWidth/320+'px';
+	        }
+	        changeSize();
+	        win.addEventListener('resize',changeSize,false);
+	    })(window,document);
+	</script>
+</head>
+<body>
+		<!-- 内容区域  -->
+		<div class="mui-content">
+			<!-- content-A  -->
+			<div class="content-A">
+				
+				<div class="content-A-top">
+					<h5>业务</h5>
+				</div>
+				<div class="content-A-bottom">
+					<ul class="clearfix">
+						<li>
+							<a href="###">
+								<img src="imgs/tongzhi.png" alt="通知公告"/>
+								<p>通知公告 </p>
+							</a>
+						</li>
+						<li>
+							<a href="index.html">
+								<img src="imgs/df-01.png" alt="党费缴纳"/>
+								<p>党费缴纳</p>
+							</a>
+						</li>
+						<li>
+							<a href="gxzj.html">
+								<img src="imgs/fazhandangyuan.png" alt="发展党员"/>
+								<p>发展党员 </p>
+							</a>
+						</li>
+						<li>
+							<a href="gxzj.html" >
+								<img src="imgs/guangxizhuanjie.png" alt="关系转接"/>
+								<p>关系转接 </p>
+							</a>
+						</li>
+						<li>
+							<a href="Three-lessons.html">
+								<img src="imgs/sh-03.png" alt="三会一课"/>
+								<p>三会一课 </p>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);">
+								<img src="imgs/zz-04.png" alt="支部活动"/>
+								<p>支部活动 </p>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- content-A结束  -->
+			
+			<!-- contentB -->
+			<div class="content-B">
+				<div class="content-A-top">
+					<h5>服务</h5>
+				</div>
+				<div class="content-B-bottom">
+					<ul class="clearfix">
+						<li>
+							<a href="javascript:void(0);">
+								<img src="imgs/hudong.png" alt="互动社区"/>
+								<p>互动社区</p>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);">
+								<img src="imgs/wenjuandiaocha.png" alt="问卷调查" style="padding-bottom: 0.14rem;" />
+								<p>问卷调查</p>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);">
+								<img src="imgs/zxt-15.png" alt="在线投票"/>
+								<p>在线投票</p>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- contentB结束 -->
+			
+		</div>
+</body>
+	<script>
+//		$(function(){
+//			$("#me").on("click",function(){
+//				window.location.href="me.html";
+//			})
+//		});
+//      window.onload=function(){
+//      	var me=document.getElementById("me");
+//      	me.oncick=function(){
+//      		window.location.href="me.html";
+//      	}
+//      }
+//		mui.init({
+//          subpages: [{
+//              url: 'me.html', //子页面HTML地址，支持本地地址和网络地址
+//              id: 'me', //子页面标志
+//          }]
+//      });
+         $('#me').on('tap', function() {
+            //打开关于页面
+            mui.openWindow({
+                url: './me.html',
+                id: 'me'
+            });
+        });
+         $('#information').on('tap', function() {
+            //打开关于页面
+            mui.openWindow({
+                url: './information.html',
+                id: 'information'
+            });
+        });
+
+
+	</script>
+</html>

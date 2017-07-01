@@ -1,0 +1,38 @@
+{
+	"index.html": {
+		"resources": [
+			"js/date.js",
+			"js/jquery.min.js",
+			"css/ystep.css",
+			"js/ystep.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/date.css",
+			"css/images/pointes_blue.png",
+			"Three-lessons.html",
+			"imgs/zy-07.png",
+			"imgs/df-01.png",
+			"imgs/zxt-15.png",
+			"imgs/sh-03.png",
+			"imgs/sh-02.png",
+			"imgs/wjdc-17.png",
+			"css/style.css",
+			"imgs/zz-04.png",
+			"imgs/gx-06.png",
+			"gxzj.html"
+		],
+		"refer": [
+			"Three-lessons.html",
+			"gxzj.html"
+		]
+	},
+	"Three-lessons.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css"
+		]
+	}
+}

@@ -1,0 +1,37 @@
+#box{
+	width:calc(100% - 2rem);
+	width:-moz-calc(100% - 2rem);
+	width:-webkit-calc(100% - 2rem);
+	padding-left:1rem;
+	padding-right:1rem;
+	padding-top:1rem;
+}
+#box p.title{
+	width:100%;
+	font-size:0.9rem;
+	color:#000;
+	line-height:1.5rem;
+	white-space:normal；
+	/*letter-spacing:1px;*/
+}
+#box p.title span.time{
+	font-size:0.5rem;
+	color:dimgrey;
+}
+#box .banner{
+	margin-top:20px;
+	width:100%;
+}
+#box .banner img{
+	border:0;
+	width:100%;
+	height:100%;
+}
+#box section{
+	margin-top:20px;
+	color:#000;
+	font-size: 0.6rem;
+	line-height:1rem;
+	text-indent: 1rem;
+}
+

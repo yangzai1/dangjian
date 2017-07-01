@@ -1,0 +1,273 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>党费计算</title>
+    <script src="js/mui.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet" />
+
+    <script type="text/javascript">
+        window.onload = function() {
+            (function(win, doc) {
+                function changeSize() {
+                    doc.documentElement.style.fontSize = 50 * doc.documentElement.clientWidth / 320 + 'px';
+                }
+                changeSize();
+                win.addEventListener('resize', changeSize, false);
+            })(window, document);
+        }
+    </script>
+
+
+    <style>
+        html {
+            font-size: 50px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        body {
+            background: #f6f6f6;
+        }
+        
+        i {
+            font-style: normal;
+        }
+        
+        .head {
+            background-color: #0062CC;
+        }
+        
+        .head h1 {
+            color: #fff;
+        }
+        
+        header a {
+            color: #fff;
+        }
+        
+        header a:last-of-type {
+            margin-top: 0.4rem;
+        }
+        
+        .list {
+            position: fixed;
+            background: #f6f6f6;
+            border: none;
+            border-bottom: 1px solid #e6e6e6;
+            height: .76rem;
+            z-index: 100;
+        }
+        
+        .list .mui-control-item {
+            border-left: none;
+            color: #3e3e3e;
+        }
+        
+        .list .mui-control-item.mui-active {
+            background: none;
+            color: #d70000;
+            border-bottom: 4px solid #d70000;
+        }
+        /*交税输入框*/
+        
+        .block-left p {
+            font-size: 14px;
+            margin-top: 0;
+            margin-bottom: 0;
+            color: #000;
+        }
+        
+        ul {
+            list-style: none;
+            width: 100%;
+            padding-top: 1.2rem;
+            background: #fff;
+        }
+        
+        ul li {
+            display: flex;
+            flex-flow: row;
+            border-bottom: .5px solid #ececec;
+            padding-bottom: 0.24rem;
+        }
+        
+        ul li:last-child {
+            border-bottom: none;
+        }
+        
+        ul li .block-left {
+            display: inline-block;
+            /*width: 0.8rem;*/
+           width:1rem;
+            height: 0.6rem;
+            margin: -0.1rem 0 0 0.5rem;
+        }
+        
+        ul li .block-right {
+            display: flex;
+            flex-flow: row;
+            width: 75%;
+            margin: 0 .2rem;
+            height: 0.52rem;
+            line-height: 0.52rem;
+        }
+        
+        ul li .block-right .left {
+            width: 73%;
+            box-sizing: border-box;
+            display: inline;
+            border:.5px solid #d2d2d2;
+            box-shadow: 0px 3px 3px #f6f6f6 inset;
+            border-radius: 0.1rem;
+        }
+        
+        ul li .block-right .right {
+            box-sizing: border-box;
+            margin-left: 0.22rem;
+        }
+        
+        .block-left-text span {
+            line-height: 1.26rem;
+            margin: 0 0.2rem 0 0.36rem;
+        }
+        
+        .block-right-num {
+            line-height: 1.26rem;
+            width: 62%;
+        }
+        
+        .block-right-num .left-num {
+            font-size: 0.81rem;
+            color: #ff6600;
+        }
+        
+        .block-right-num .right-txt {
+            margin-top: 0.2rem;
+            line-height: 1rem;
+            float: right;
+        }
+        
+        .number-text {
+            padding-bottom: 0;
+        }
+        
+        .btn-list {
+            padding: 0.4rem 0.25rem;
+        }
+        
+        .btn-list button {
+            float: left;
+            width: 2.8rem;
+            height: 0.74rem;
+            box-sizing: border-box;
+            margin-right: 0.2rem;
+            background: #4c82c3;
+            font-size: 0.34rem;
+            color: #fff;
+            border: none;
+        }
+        
+        .btn-list button:last-child {
+            margin-right: 0;
+            background: #e42200;
+        }
+        
+        footer a {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: .3rem;
+            line-height: .76rem;
+            background: #d70100;
+            color: #fff;
+            border-top: 1px solid #e6e6e6;
+            z-index: 99;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <header class="mui-bar mui-bar-nav head">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <a class="mui-action-back mui-pull-right">...</a>
+        <h1 class="mui-title">党费缴纳</h1>
+    </header> -->
+
+    <div class="mui-segmented-control list">
+        <a class="mui-control-item" id="pay" href="#pay_platform">党费缴纳</a>
+        <a class="mui-control-item mui-active" id="pay_math" href="#pay_hository">党费计算</a>
+        <a class="mui-control-item" id="pay_hository" href="#item2">党费记录</a>
+    </div>
+
+    <ul class="com-list-a">
+        <li>
+            <span class="block-left">
+                		<label>
+                			<p>月收入</p>
+                			<p>(税后)</p>
+                		</label>
+            		</span>
+            <span class="block-right">
+                    	<input class="left" type="" name="" id="" value="" />
+                    	<span class="right">元</span>
+            </span>
+        </li>
+        <li class="number-text">
+            <span class="block-left-text">
+                <span class="">应缴党费</span>
+            </span>
+
+            <span class="block-right-num">
+            <span class="left-num">100</span>
+            <span class="right-txt">元</span>
+            </span>
+        </li>
+    </ul>
+    <div class="btn-list">
+
+        <button>计算</button>
+
+        <a href="index.html">
+            <button>缴纳</button>
+        </a>
+    </div>
+
+    <footer>
+        <a href="jngd.html">《党费收缴、使用、管理规定》</a>
+    </footer>
+    <script type="text/javascript">
+        $('#pay').on('tap', function() {
+            //打开关于页面
+            mui.openWindow({
+                url: './index.html',
+                id: 'pay'
+            });
+        });
+        $('#pay_math').on('tap', function() {
+            //打开关于页面
+            mui.openWindow({
+                url: './jisuan.html',
+                id: 'pay_math'
+            });
+        });
+        $('#pay_hository').on('tap', function() {
+            //打开关于页面
+            mui.openWindow({
+                url: './pay_hository.html',
+                id: 'pay_hository'
+            });
+        });
+    </script>
+</body>
+
+</html>

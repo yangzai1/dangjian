@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>关系转接</title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+     <!-- 引入ystep样式 -->
+    <link rel="stylesheet" href="css/ystep.css">
+	<link href="css/date.css" rel="stylesheet" type="text/css" />
+	
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+</head>
+
+<body>
+	<!-- <header id="header" class="mui-bar mui-bar-nav">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="index.html"></a>
+		<h1 class="mui-title">关系转接</h1>
+		<a class="mui-action-back mui-icon mui-icon mui-icon-more mui-pull-right"></a>
+	</header> -->
+	<div class="mui-content">
+		<div class="smart_title">当前流程</div>
+		<div class="arrow">
+			<div class="ystep3"></div>
+		</div>
+		<div class="smart_title">关系转接信息</div>
+		<div class="">
+			<form action="" class="clearfloat">
+				<div class="demo smart_time">
+					<div class="lie clearfloat lie_top">
+						<label>党费交至时间</label>
+						<input  placeholder="请选择时间" id="endTime" class="mui-input-clear" />
+					</div>
+					<!--<div class="lie">日期设置-1:<input  id="beginTime" class="kbtn" /></div>-->
+				</div>
+				<div id="datePlugin"></div>
+				<div class="mui-input-row lie clearfloat lie_bootom">
+					<label>转出党组织</label>
+					<input type="text" class="mui-input-clear" placeholder="物探一支部">
+				</div>
+				<div class="mui-input-row lie clearfloat lie_bootom">
+					<label>转入党组织</label>
+					<input type="text" class="mui-input-clear" placeholder="机关一支部">
+				</div>
+				<div class="mui-input-row lie clearfloat lie_bootom">
+					<label>转出事由</label>
+					<input type="text" class="mui-input-clear" placeholder="部门">
+				</div>
+				<div class="mui-input-row lie clearfloat lie_bootom">
+					<label>备注</label>
+					<textarea>
+						
+					</textarea>
+				</div>
+				
+			</form>
+			<div class="sethart_button">
+				<a href="Relationship-switching.html">
+					<button>
+						提交
+					</button>
+				</a>
+			</div>
+			
+				
+		</div>
+	</div>
+	
+	
+    <!-- 引入jquery -->
+    <script src="js/jquery.min.js"></script>
+    <!-- 引入ystep-->
+    <script src="js/ystep.js"></script>
+    
+    <script type="text/javascript" src="js/date.js" ></script>
+	<script type="text/javascript">
+	$(function(){
+		$('#beginTime').date();
+		$('#endTime').date({theme:"datetime"});
+	});
+	</script>
+	<script>
+		//根据jQuery选择器找到需要加载ystep的容器
+		//loadStep 方法可以初始化ystep
+		$(".ystep3").loadStep({
+		  size: "small",
+		  color: "blue",
+		  steps: [{
+		    title: "申请",
+		    content: "申请"
+		  },{
+		    title: "提交",
+		    content: "提交"
+		  },{
+		    title: "转出审批",
+		    content: "转出审批"
+		  },{
+		    title: "转入审批",
+		    content: "转入审批"
+		  },{
+		    title: "完成",
+		    content: "完成"
+		  }]
+		});
+		$(".ystep3").setStep(2);
+    </script>
+</body>
+</html>

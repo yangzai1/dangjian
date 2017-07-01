@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>党费记录</title>
+    <link href="css/mui.min.css" rel="stylesheet" />
+    <link href="plugin/picker/css/mui.picker.css" rel="stylesheet" />
+    <link href="plugin/picker/css/mui.dtpicker.css" rel="stylesheet" />
+    <style type="text/css">
+        html {
+            font-size: 50px;
+            width: 100%;
+            height: 100%;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        body {
+            background: #f6f6f6;
+            height: 100%;
+        }
+        
+        i {
+            font-style: normal;
+        }
+        /**
+		*头部
+		*/
+        
+        .head {
+            background-color: #0062CC;
+            z-index: 999;
+        }
+        
+        .head h1 {
+            color: #fff;
+        }
+        
+        header a {
+            color: #fff;
+        }
+        
+        header a:last-of-type {
+            margin-top: 0.15rem;
+        }
+        /**
+		*菜单切换
+		*/
+        
+        .list {
+            position: fixed;
+           
+            background: #f6f6f6;
+            border: none;
+            border-bottom: 1px solid #e6e6e6;
+            height: .76rem;
+            z-index: 100;
+        }
+        
+        .list .mui-control-item {
+            border-left: none;
+            color: #3e3e3e;
+        }
+        
+        .list .mui-control-item.mui-active {
+            background: none;
+            color: #d70000;
+            border-bottom: 4px solid #d70000;
+        }
+        
+        .mui-content {
+            height: 0px;
+            margin: 0px;
+            background-color: #efeff4;
+        }
+        
+        .mui-content-padded {
+            margin: 0;
+        }
+        
+        h5.mui-content-padded {
+            margin-left: 3px;
+            margin-top: 20px !important;
+            margin-left: 0;
+            margin-right: 0
+        }
+        
+        .content-top {
+            background: #f6f6f6;
+            padding-top: 10px;
+            margin-bottom: 10px;
+            position: fixed;
+            /*top: 1rem;*/
+           top:0.6rem;
+            width: 100%;
+            z-index: 99;
+        }
+        
+        h5.mui-content-padded:first-child {
+            margin-top: 12px !important;
+        }
+        
+        .mui-btn {
+            font-size: 16px;
+            padding: 8px;
+            margin: 3px;
+        }
+        
+        .ui-alert {
+            text-align: center;
+            padding: 20px 10px;
+            font-size: 16px;
+        }
+        
+        .date {
+            display: flex;
+            flex-flow: row;
+            width: 70%;
+            margin: 0 auto;
+            /*margin-bottom: .3rem;*/
+           padding-top:.3rem;
+           padding-bottom:.3rem;
+        }
+        
+        .date span {
+            line-height: .6rem;
+            font-size: .24rem;
+        }
+        
+        .date-box {
+            position: relative;
+            width: 52%;
+            border: 1px solid #e6e6e6;
+            border-radius: 5px;
+            margin: 0 .2rem;
+            background: #fff;
+            line-height: .6rem;
+            padding-left: .1rem;
+            font-size: .24rem;
+        }
+        
+        .date-icon {
+            position: absolute;
+            left: 55%;
+            z-index: 99;
+            margin-top: .15rem;
+            margin-right: .1rem;
+            display: inline-block;
+            width: .3rem;
+            height: .3rem;
+            background: url(./imgs/date-icon.png) no-repeat;
+            background-size: 100%;
+        }
+        
+        .search-btn {
+            width: 1.18rem;
+            background: #f6f6f6;
+            font-size: .24rem;
+        }
+        /**
+		* list
+		*/
+        
+        .list-label {
+            display: flex;
+            flex-flow: row;
+            width: 100%;
+            height: .6rem;
+            line-height: .6rem;
+            background:#F8f8f8;
+            /*margin-top: .3rem; */
+        }
+        
+        .list-label span {
+            display: inline-block;
+            width: 33%;
+            font-size: .24rem;
+            text-align: center;
+        }
+        
+        #pullrefresh {
+            position: relative;
+            top: 2.7rem;
+            width: 100%;
+            border-top: 1px solid #e6e6e6;
+            z-index: 3;
+            padding-bottom: .8rem;
+        }
+        
+        #pullrefresh li {
+            display: flex;
+            flex-flow: row;
+            border-bottom: .5px solid #e6e6e6;
+            background: #fff;
+        }
+        
+        #pullrefresh li:last-child {
+            border-bottom: none;
+        }
+        
+        #pullrefresh li span {
+            display: inline-block;
+            width: 33%;
+            font-size: .24rem;
+            text-align: center;
+        }
+        /**
+		*底部
+		*/
+        
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: .3rem;
+            line-height: .76rem;
+            background: #d70100;
+            color: #fff;
+            border-top: 1px solid #e6e6e6;
+            z-index: 99;
+        }
+        
+        .footer strong {
+            font-weight: normal;
+            font-size: .6rem;
+            margin: 0 .2rem;
+        }
+        
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <header class="mui-bar mui-bar-nav head">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <a class="mui-action-back mui-pull-right">...</a>
+        <h1 class="mui-title">党费缴纳</h1>
+    </header> -->
+
+    <div class="mui-segmented-control list">
+        <a class="mui-control-item" id="pay" href="#pay_platform">党费缴纳</a>
+        <a class="mui-control-item" id="pay_math" href="#pay_hository">党费计算</a>
+        <a class="mui-control-item mui-active" id="pay_hository" href="#item2">党费记录</a>
+    </div>
+    <div class="">
+        <div class="mui-content-padded">
+            <div class="content-top">
+            	<div style="width:100%;background:#fff;">
+	                <div class="date">
+	                    <span>年度</span>
+	                    <div id="dd" class="date-box" data-options='{"type":"date","beginYear":1949,"endYear":2016}'>
+	                    </div>
+	                    <a href="javascript:;" id="showUserPicker" data-options='{"type":"date"}' class="date-icon" type="button"></a>
+	                    <button class="search-btn">查询</button>
+	                    <span class="mui-icon-extra mui-icon-extra-calc"></span>
+	                </div>
+                </div>
+                <div class="list-label">
+                    <span>月份</span>
+                    <span>缴纳金额（元）</span>
+                    <span>缴纳日期</span>
+                </div>
+            </div>
+            <!--<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+				<div class="mui-scroll">-->
+            <!--数据列表-->
+            <ul id="pullrefresh">
+                <!-- 内容 -->
+                <li class="list-label">
+                    <span>1</span>
+                    <span>200</span>
+                    <span>01-28</span>
+                </li>
+                <li class="list-label">
+                    <span>2</span>
+                    <span>200</span>
+                    <span>02-20</span>
+                </li>
+                <li class="list-label">
+                    <span>3</span>
+                    <span>200</span>
+                    <span>03-22</span>
+                </li>
+                <li class="list-label">
+                    <span>4</span>
+                    <span>200</span>
+                    <span>04-20</span>
+                </li>
+                <li class="list-label">
+                    <span>5</span>
+                    <span style="color:#da0700">未缴纳</span>
+                   <!-- <span>2017-05-12</span>-->
+                </li>
+                <li class="list-label">
+                    <span>6</span>
+                    <span style="color:#da0700">未缴纳</span>
+                    <!--<span>2017-05-12</span>-->
+                </li>
+                <li class="list-label">
+                    <span>7</span>
+                    <span>200</span>
+                    <span>07-18</span>
+                </li>
+                <li class="list-label">
+                    <span>8</span>
+                    <span>200</span>
+                    <span>08-20</span>
+                </li>
+                <li class="list-label">
+                    <span>9</span>
+                    <span>200</span>
+                    <span>09-28</span>
+                </li>
+                <li class="list-label">
+                    <span>10</span>
+                    <span>200</span>
+                    <span>10-20</span>
+                </li>
+                <li class="list-label">
+                    <span>11</span>
+                    <span>200</span>
+                    <span>11-18</span>
+                </li>
+                <li class="list-label">
+                    <span>12</span>
+                    <span>200</span>
+                    <span>12-20</span>
+                </li>
+               
+            </ul>
+            <!--</div>
+			</div>-->
+            <div class="footer">
+                <a href="index.html">
+                    <span>年度缴纳合计:<strong>608</strong>元</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/mui.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="plugin/picker/js/mui.dtpicker.js"></script>
+<script src="plugin/picker/js/mui.picker.js"></script>
+<script>
+    window.onload = function() {
+        (function(win, doc) {
+            function changeSize() {
+                doc.documentElement.style.fontSize = 50 * doc.documentElement.clientWidth / 320 + 'px';
+            }
+            changeSize();
+            win.addEventListener('resize', changeSize, false);
+        })(window, document);
+
+        $('#pay').on('tap', function() {
+            //打开关于页面
+            mui.openWindow({
+                url: './index.html',
+                id: 'pay'
+            });
+        });
+        $('#pay_math').on('tap', function() {
+            //打开关于页面
+            mui.openWindow({
+                url: './jisuan.html',
+                id: 'pay_math'
+            });
+        });
+        $('#pay_hository').on('tap', function() {
+            //打开关于页面
+            mui.openWindow({
+                url: './pay_hository.html',
+                id: 'pay_hository'
+            });
+        });
+
+        /**
+         * 上拉下拉控件
+         */
+
+        // mui.init({
+        // 	pullRefresh : {
+        // 		container:"#pullrefresh",//下拉刷新容器标识，querySelector能定位的css选择器均可，比如：id、.class等
+        // 		down : {
+        // 			// style:'circle',//必选，下拉刷新样式，目前支持原生5+ ‘circle’ 样式
+        // 			// color:'#2BD009', //可选，默认“#2BD009” 下拉刷新控件颜色
+        // 			// height:50,//可选,默认50.触发下拉刷新拖动距离,
+        // 			// auto: true,//可选,默认false.首次加载自动上拉刷新一次
+        // 			callback:pulldownRefresh //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+        // 		},
+        // 		up: {
+        // 			contentrefresh: '正在加载...',
+        // 			callback: pullupRefresh
+        // 		}
+        // 	}
+        // });
+        // /**
+        //  * 下拉刷新具体业务实现
+        //  */
+        // function pulldownRefresh(){
+        // 	setTimeout(function(){
+        // 		var table = document.body.querySelector('.mui-table-view');
+        // 		var cells = document.body.querySelectorAll('.mui-table-view-cell');
+        // 		//模拟数据
+        // 		for (var i = cells.length, len = i + 3; i < len; i++) {
+        // 			var li = document.createElement('li');
+        // 			li.className = 'mui-table-view-cell';
+        // 			li.innerHTML = '<span>'+'月份'+'</span><span>'+'缴纳金额'+'</span><span>'+'缴纳日期'+'</span>';
+        // 			//下拉刷新，新纪录插到最前面；
+        // 			table.insertBefore(li, table.firstChild);
+        // 		}
+
+        // 		mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+        // 	}, 1500);
+        // }
+        // var count = 0;
+        // /*
+        // * 上拉加载具体业务实现
+        // */
+        // function pullupRefresh(){
+        // 		setTimeout(function() {
+        // 			mui('#pullrefresh').pullRefresh().endPullupToRefresh((++count > 2)); //参数为true代表没有更多数据了。
+        // 			var table = document.body.querySelector('.mui-table-view');
+        // 			var cells = document.body.querySelectorAll('.mui-table-view-cell');
+
+        // 			for (var i = cells.length, len = i + 20; i < len; i++) {
+        // 				var li = document.createElement('li');
+        // 				li.className = 'mui-table-view-cell';
+        // 				li.innerHTML = '<span>'+'月份'+'</span><span>'+'缴纳金额'+'</span><span>'+'缴纳日期'+'</span>';
+        // 				table.appendChild(li);
+        // 			}
+
+        // 		}, 1500);
+        // }
+        // if (mui.os.plus) {
+        // 		mui.plusReady(function() {
+        // 			setTimeout(function() {
+        // 				mui('#pullrefresh').pullRefresh().pullupLoading();
+        // 			}, 1000);
+        // 		});
+        // } else { 
+        // 		mui.ready(function() {
+        // 			mui('#pullrefresh').pullRefresh().pullupLoading();
+        // 		});
+        // }
+
+
+        /**
+         * 日期控件
+         */
+        　　
+        (function($) {
+            $.init();
+            var result = $('#dd')[0];
+            var btns = $('#showUserPicker');
+            btns.each(function(i, btn) {
+                btn.addEventListener('tap', function() {
+                    var optionsJson = this.getAttribute('data-options') || '{}';
+                    var options = JSON.parse(optionsJson);
+                    var id = this.getAttribute('id');
+                    /*
+                     * 首次显示时实例化组件
+                     * 示例为了简洁，将 options 放在了按钮的 dom 上
+                     * 也可以直接通过代码声明 optinos 用于实例化 DtPicker
+                     */
+                    var picker = new $.DtPicker(options);
+                    picker.show(function(rs) {
+                        /*
+                         * rs.value 拼合后的 value
+                         * rs.text 拼合后的 text
+                         * rs.y 年，可以通过 rs.y.vaue 和 rs.y.text 获取值和文本
+                         * rs.m 月，用法同年
+                         * rs.d 日，用法同年
+                         * rs.h 时，用法同年
+                         * rs.i 分（minutes 的第二个字母），用法同年
+                         */
+                        result.innerText = rs.text;
+                        /* 
+                         * 返回 false 可以阻止选择框的关闭
+                         * return false;
+                         */
+                        /*
+                         * 释放组件资源，释放后将将不能再操作组件
+                         * 通常情况下，不需要示放组件，new DtPicker(options) 后，可以一直使用。
+                         * 当前示例，因为内容较多，如不进行资原释放，在某些设备上会较慢。
+                         * 所以每次用完便立即调用 dispose 进行释放，下次用时再创建新实例。
+                         */
+                        picker.dispose();
+                    });
+                }, false);
+            });
+
+        })(mui);
+    }
+</script>
+
+</html>

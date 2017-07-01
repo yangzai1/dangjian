@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>关系转接</title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+     <!-- 引入ystep样式 -->
+    <link rel="stylesheet" href="css/ystep.css">
+	<link href="css/date.css" rel="stylesheet" type="text/css" />
+	
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+</head>
+
+<body>
+	<header id="header" class="mui-bar mui-bar-nav">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="gxzj.html"></a>
+		<h1 class="mui-title">关系转接</h1>
+		<a class="mui-action-back mui-icon mui-icon mui-icon-more mui-pull-right"></a>
+	</header>
+	<div class="mui-content">
+		<div class="smart_title">当前流程</div>
+		<div class="arrow">
+			<div class="ystep3"></div>
+		</div>
+		<div class="smart_title">信息跟踪</div>
+
+		<div class="">
+			<div class="content-Gxzj-B">
+	    		<ul>
+	    			<li>处理时间：<span>2017-06-23 </span></li>
+	    			<li>是否处理：<span>处理中</span></li>
+	    			<li>处理党组织：<span> 机关一支部</span></li>
+	    			<li> 处理信息：</li> 
+	    			<li>操作人：</li>
+	    		</ul>
+		    </div>	
+		</div>
+	
+	</div>
+	
+	
+    <!-- 引入jquery -->
+    <script src="js/jquery.min.js"></script>
+    <!-- 引入ystep-->
+    <script src="js/ystep.js"></script>
+    
+
+	<script>
+		//根据jQuery选择器找到需要加载ystep的容器
+		//loadStep 方法可以初始化ystep
+		$(".ystep3").loadStep({
+		  size: "small",
+		  color: "blue",
+		  steps: [{
+		    title: "申请",
+		    content: "申请"
+		  },{
+		    title: "提交",
+		    content: "提交"
+		  },{
+		    title: "转出审批",
+		    content: "转出审批"
+		  },{
+		    title: "转入审批",
+		    content: "转入审批"
+		  },{
+		    title: "完成",
+		    content: "完成"
+		  }]
+		});
+		$(".ystep3").setStep(1);
+    </script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>确认支付</title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet" />
+    <script type="text/javascript">
+        window.onload = function() {
+            (function(win, doc) {
+                function changeSize() {
+                    doc.documentElement.style.fontSize = 50 * doc.documentElement.clientWidth / 320 + 'px';
+                }
+                changeSize();
+                win.addEventListener('resize', changeSize, false);
+            })(window, document);
+        }
+    </script>
+    <script type="text/javascript" charset="utf-8">
+        mui.init();
+    </script>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        /*头部样式*/
+        
+        .headBox {
+            height: 3.1rem;
+            width: 100%;
+            background: #262d40;
+            padding: 0.2rem 0.1rem 0 0.1rem;
+        }
+        
+        .head-top {
+            width: 100%;
+        }
+        
+        .head-top i {
+            display: inline-block;
+            width: 0.4rem;
+            height: 0.3rem;
+            background: #fff;
+            line-height: 0.3rem;
+            border-radius: 0.1rem;
+            margin-right: 0.1rem;
+        }
+        
+        .head-top span {
+            color: #fff;
+        }
+        
+        .head .user-photo {
+            width: 1.16rem;
+            height: 1.16rem;
+            border: 1px solid #8a8e99;
+            margin: 0.5rem auto 0.3rem auto;
+            border-radius: 0.1rem;
+            overflow: hidden;
+        }
+        
+        .head img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .userName {
+            font-size: 0.3rem;
+            line-height: 0.4rem;
+            text-align: center;
+        }
+        /*确认支付*/
+        
+        .qrzf-title {
+            line-height: 1rem;
+            border-bottom: 2px solid #eaeaea;
+            padding: 0 0.2rem;
+        }
+        
+        .qrzf-title .div1 {
+            width: 78%;
+            padding-left: 25%;
+        }
+        
+        .qrzf-title .div1 .alipay {
+            display: block;
+            width: 0.36rem;
+            height: 0.36rem;
+            background: url(imgs/alipay_icon.png) no-repeat center center;
+            background-size: 100%;
+            margin: 0.31rem 0.1rem 0 0;
+        }
+        
+        .qrzf-title span:first-child {
+            margin-top: 0.2rem;
+        }
+        
+        .qrzf-title .help_btn {
+            margin: 0.3rem 0.2rem 0 0;
+            color: #65818f;
+        }
+        
+        .qrzf-title .close {
+            font-size: 0.6rem;
+        }
+        /*信息部分*/
+        
+        .info-box {
+            width: 100%;
+            margin-bottom: 0.78rem;
+            text-align: center;
+        }
+        
+        .info-t {
+            width: 100%;
+            line-height: 1.3rem;
+            font-size: 0.46rem;
+            margin: 0 auto;
+        }
+        
+        .info-list {
+            padding: 0 0.4rem;
+            font-size: 0.28rem;
+            color: #000;
+            line-height: 0.5rem;
+        }
+        
+        .info-list li span:first-child {
+            line-height: 0.5rem;
+            color: #666;
+        }
+        
+        .aplay-btn {
+            border: 1px solid #4b6c7d;
+            color: #4b6c7d;
+            font-size: 0.24rem;
+            padding: 0 0.2rem;
+            border-radius: 0.1rem;
+        }
+        
+        .info-list li i:last-child {
+            color: #bdbdbd;
+        }
+        
+        .info-list li b:last-child {
+            width: 0.16rem;
+            height: 0.16rem;
+            display: inline-block;
+            background: url(imgs/imgs/dian_03.png) no-repeat;
+            background-size: 100%;
+        }
+        
+        .info-box-border {
+            border-bottom: 2px solid #f1f1f1;
+        }
+        /*底部按钮*/
+        
+        .info-footer {
+            padding: 0 0.4rem;
+        }
+        
+        .info-footer button {
+            width: 100%;
+            background: #1289e3;
+            color: #fff;
+            border: none;
+            border-radius: 0.1rem;
+            line-height:.8rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="headBox">
+        <!-- <div class="head-top mui-clearfix">
+            <a href="index.html">
+                <i class="mui-icon mui-icon-arrowleft mui-pull-left"></i>
+            </a>
+            <span id="" class="mui-pull-left">石油党建</span>
+        </div> -->
+
+        <div class="head">
+            <div class="user-photo">
+                <img src="imgs/QQ_icon.png" />
+            </div>
+
+            <p class="userName">石油党建</p>
+        </div>
+
+    </header>
+    <div class=" mui-clearfix qrzf-title">
+        <span class="close mui-icon mui-icon-closeempty  mui-pull-left"></span>
+        <div class="div1 mui-pull-left">
+            <span class="alipay mui-pull-left"></span>
+            <span class="mui-pull-left">确认支付</span>
+        </div>
+        <span class="help_btn mui-pull-right mui-icon mui-icon-help"></span>
+    </div>
+    <div class="info-box">
+        <div class="info-t ">
+            <span class="info-num">￥</span>
+            <span class="num1">100</span>
+        </div>
+        <ul class="info-list">
+            <li class="mui-clearfix">
+                <span class="mui-pull-left">收款方</span>
+                <span class="mui-pull-right">机关一支部</span>
+            </li>
+            <li class="mui-clearfix info-box-border">
+                <span class="mui-pull-left">订单信息</span>
+                <span class="mui-pull-right">1212232qewdfasdfadfdas</span>
+            </li>
+            <li class="mui-clearfix info-box-border">
+                <span class="mui-pull-left">付款方式</span>
+                <span class="mui-pull-right">交通银行储蓄卡(1478)<b></b><i class="mui-icon mui-icon-forward"></i></span>
+            </li>
+            <li class="mui-clearfix info-box-border">
+                <span class="mui-pull-left">花呗最高立减10元</span>
+                <span class="mui-pull-right aplay-btn">立即使用</span>
+            </li>
+        </ul>
+    </div>
+    <div class="info-footer">
+        <a href="Success.html">
+            <button>立即付款</button>
+        </a>
+    </div>
+</body>
+
+</html>

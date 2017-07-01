@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>确认支付</title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet" />
+
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        html {
+            font-size: 50px;
+        }
+      /*  header a{
+        	font-size: 0.28rem;
+        	font-weight: normal;
+        }
+        .succ {
+            font-size: 0.26rem;
+            color: #a8a8a8;
+        }*/
+        /*.zy-djy{
+        	width:100%;
+        	line-height: 0.52rem;
+        	background: url(imgs/dang.png) no-repeat 0 1rem;
+        }*/
+       .zy-djy {
+       	position: relative;
+       	padding-top: .46rem;
+       	
+       }
+        .zy-djy i{
+        	display:inline-block;
+        	width:.52rem;
+        	height:.52rem;
+        	background: url(imgs/dang.png) no-repeat;
+        	background-size:100%;
+        	position: absolute;
+        	left:2rem;
+        	top:0.3rem;
+        }
+        
+        /*信息部分*/
+        
+        .info-box {
+            width: 100%;
+            margin-bottom: 0.2rem;
+            text-align: center;
+            background: #ffffff;
+            margin-top:0.7rem;
+        }
+        
+        .info-t {
+            width: 100%;
+            line-height: 1.3rem;
+            font-size: 0.46rem;
+            margin: 0 auto;
+        }
+        
+        .info-list {
+            padding: 0 0.4rem;
+            font-size: 0.28rem;
+            color: #000;
+            line-height: 0.65rem;
+        }
+        
+        .info-list li span:first-child {
+            line-height: 0.5rem;
+            color: #666;
+        }
+        
+        .aplay-btn {
+            border: 1px solid #4b6c7d;
+            color: #4b6c7d;
+            font-size: 0.24rem;
+            padding: 0 0.2rem;
+            border-radius: 0.1rem;
+        }
+        
+        .info-list li i:last-child {
+            color: #bdbdbd;
+        }
+        
+        .info-list li b:last-child {
+            width: 0.16rem;
+            height: 0.16rem;
+            display: inline-block;
+            background: url(imgs/imgs/dian_03.png) no-repeat;
+            background-size: 100%;
+        }
+        
+        .info-box-border {
+            border-bottom: 1px solid #999;
+        }
+        /*底部样式*/
+        
+        .cuss-footer {
+            text-align: center;
+            color: #2c76a3;
+        }
+        
+        .cuss-footer i {
+            width: 2px;
+            height: 0.2rem;
+            background: #2c76a3;
+            margin: 0 0.1rem;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+   <!-- <header class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left">返回</a>
+        <h1 class="mui-title">缴纳成功</h1>
+        <a class="mui-action-back mui-icon mui-icon-right-nav mui-pull-right">完成</a>
+    </header>-->
+    
+    <div class="info-box">
+    	<div class="zy-djy">
+        	<i></i>
+        	<span>石油党建</span>
+        	<!--中国石油党建云-->
+    	</div>
+        <div class="info-t ">
+            <span class="info-num">￥</span>
+            <span class="num1">100</span>
+        </div>
+        <div class="succ-t ">
+            <span class="succ">缴费成功</span>
+        </div>
+        <ul class="info-list">
+            <li class="mui-clearfix">
+                <span class="mui-pull-left">付款方式</span>
+                <span class="mui-pull-right">交通银行储蓄卡(1478)<b></b><i class="mui-icon mui-icon-forward"></i></span>
+            </li>
+            <li class="mui-clearfix">
+                <span class="mui-pull-left">转账说明</span>
+                <span class="mui-pull-right">转账</span>
+            </li>
+            <li class="mui-clearfix info-box-border">
+                <span class="mui-pull-left">对方账户</span>
+                <span class="mui-pull-right">机关一支部</span>
+            </li>
+            <li class="mui-clearfix">
+                <span class="mui-pull-left">创建时间</span>
+                <span class="mui-pull-right">2017.1.1 10:11</span>
+            </li>
+            <li class="mui-clearfix">
+                <span class="mui-pull-left">订单号</span>
+                <span class="mui-pull-right">1212232qewdfasdfadfdas</span>
+            </li>
+        </ul>
+    </div>
+    <div class="cuss-footer">
+        <span>对此订单有疑问</span><i></i><span>投诉</span>
+    </div>
+</body>
+<script type="text/javascript">
+    window.onload = function() {
+        (function(win, doc) {
+            function changeSize() {
+                doc.documentElement.style.fontSize = 50 * doc.documentElement.clientWidth / 320 + 'px';
+            }
+            changeSize();
+            win.addEventListener('resize', changeSize, false);
+        })(window, document);
+    }
+</script>
+
+</html>
