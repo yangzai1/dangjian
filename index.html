@@ -1,268 +1,546 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="UTF-8">
-		<title>党建要闻</title>
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link href="css/mui.min.css" rel="stylesheet" />
-		<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
-		<link rel="stylesheet" type="text/css" href="css/style1.css"/>
-		<script src="js/jquery-1.10.1.min.js"></script>
-		<script type="text/javascript" src="js/swiper.min.js"></script>
-<!--		<style type="text/css">
-			#topNav {
-				width: 100%;
-				overflow: hidden;
-				font: 16px/32px hiragino sans gb, microsoft yahei, simsun;
-				border-bottom:1px solid #f8f8f8;
-			}
-			#topNav .swiper-slide {
-				width:21%;
-				text-align:center;
-				font-size: 14px;
-			}
-			#topNav .swiper-slide a{
-				transition:all .3s ease;
-				display:block;
-				color: #000;
-			}
-			.swiper-wrapper div:nth-of-type(4){
-				width: 18% !important ;
-			}
-			#topNav .active a{
-				transform:scale(1.1);
-				color:#FF2D2D;
-			}
-		</style>
--->	</head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>党费缴纳</title>
+    <script src="js/mui.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet" />
+    <script type="text/javascript" charset="utf-8">
+        mui.init();
+    </script>
+    <style type="text/css">
+        html {
+            font-size: 50px;
+            width: 100%;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        body {
+            background: #f6f6f6;
+            overflow: hidden;
+        }
+        
+        i {
+            font-style: normal;
+        }
+        /**
+		*头部
+		*/
+        
+        .head {
+            background-color: #0062CC;
+        }
+        
+        .head h1 {
+            color: #fff;
+        }
+        
+        header a {
+            color: #fff;
+        }
+        
+        header a:last-of-type {
+            margin-top: 0.15rem;
+        }
+        /**
+		*菜单切换
+		*/
+        
+        .list {
+            position: fixed;
+            top: -1px;
+            background: #f6f6f6;
+            border: none;
+            border-bottom: 1px solid #e6e6e6;
+            height: .76rem;
+            z-index: 100;
+        }
+        
+        .list .mui-control-item {
+            border-left: none;
+            color: #3e3e3e;
+        }
+        
+        .list .mui-control-item.mui-active {
+            background: none;
+            color: #d70000;
+            border-bottom: 4px solid #d70000;
+        }
+        /**
+		*支付选择
+		*/
+        
+        .pay-top {
+            background: #fff;
+        }
+        
+        .mui-content-padded {
+            padding-top: .55rem;
+            margin: 10px 0;
+        }
+        
+        .money_sorting {
+            border-bottom: 1px solid #ececec;
+        }
+        
+        .money_sorting p {
+            line-height: 1.15rem;
+            font-size: .24rem;
+            text-align: right;
+            color: #000;
+            padding: 0 .2rem;
+            margin-bottom: 0;
+        }
+        
+        .money_sorting .money_list {
+            margin-top: .32rem;
+        }
+        
+        .money_sorting .money_list button {
+            clear: both;
+            overflow: hidden;
+            width: 1.38rem;
+            height: .52rem;
+            border-radius: 5px;
+            margin-right: .1rem;
+            background: #fbfbfb;
+            color: #5389c9;
+            font-size: .2rem;
+            border: .5px solid #b5c7dd;
+        }
+        
+        .money_list button i {
+            float: left;
+            display: inline-block;
+            width: .32rem;
+            height: .32rem;
+            background: url(imgs/zfxz_icon.png) repeat scroll top left;
+            background-size: 100%;
+            margin-right: .1rem;
+        }
+        
+        .money_list button span {
+            float: left;
+            /*line-height: 1rem;*/
+        }
+        
+        .money_sorting .money_list .active {
+            background: #ff6600;
+            color: #fff;
+            border:none;
+        }
+        
+        .money_mun {
+            padding: 0 .2rem;
+        }
+        
+        .money_text {
+            font-size: 0.24rem;
+            color: #000000;
+            line-height: 1rem;
+            margin-bottom: 0;
+        }
+        
+        .money_number {
+            clear: both;
+            overflow: hidden;
+            margin-top: -20px;
+        }
+        
+        .money_number strong {
+            float: left;
+            color: #000;
+            margin-right: 0.2rem;
+            font-size: .6rem;
+            line-height: 1.12rem;
+        }
+        
+        .money_number input {
+            float: left;
+            color: #f60;
+            border: none;
+            width: 70%;
+            font-size: .6rem;
+            margin: 0;
+            padding: 0;
+            line-height: 1.1rem;
+            height: 1.1rem;
+        }
+        /*支付平台*/
+        
+        .zf_mode p {
+            margin-bottom: 0;
+        }
+        
+        .zf_mode h6 {
+            font-size: 0.24rem;
+            color: #000;
+            margin-top: .5rem;
+            margin-bottom: .3rem;
+            background: #f8f8f8;
+            padding-left: .2rem;
+        }
+        
+        .pay-second {
+            background: #fff;
+        }
+        /**
+		 * start
+		 */
+        
+        .zf_mode ul li {
+            display: flex;
+            flex-flow: row;
+            padding: 0 .2rem;
+            font-family: "微软雅黑", arial;
+        }
+        
+        .zf_mode ul li .block-left {
+            display: inline-block;
+        }
+        
+        .zf_mode ul li .block-left label {
+            display: inline-block;
+            width: .7rem;
+            height: .7rem;
+        }
+        
+        .zf_mode ul li .block-right {
+            display: flex;
+            flex-flow: row;
+            width: 90%;
+            margin-left: .3rem;
+            height: .8rem;
+            line-height: .8rem;
+            border-bottom: .5px solid #E6E6E6;
+        }
+        
+        .zf_mode ul li:last-child .block-right {
+            border-bottom: none;
+        }
+        
+        .zf_mode ul li .block-right .left {
+            width: 95%;
+            box-sizing: border-box;
+        }
+        
+        .zf_mode ul li .block-right .left p {
+            font-size: .28rem;
+        }
+        
+        .zf_mode ul li .block-right .right {
+            box-sizing: border-box;
+            width: .32rem;
+            height: .32rem;
+            background: url(imgs/zfxz_icon.png) no-repeat;
+            background-size: 100%;
+            margin-top: .32rem;
+        }
+        
+        .zf_mode ul li .block-right .active {
+            background: url(imgs/pay_icon.png) no-repeat;
+            background-size: 100%;
+        }
+        /*支付宝支付*/
+        
+        .zf_mode ul li .block-left .alipay-icon {
+            background: url(./imgs/alipay_icon.png) no-repeat;
+            background-size: 100%;
+            margin-top: .1rem;
+        }
+        
+        .zf_mode ul li .alipay {
+            height: .9rem;
+        }
+        
+        .zf_mode ul li .alipay p {
+            line-height: .45rem;
+            margin-top: .1rem;
+        }
+        
+        .zf_mode ul li .alipay .xiao {
+            padding: .03rem .1rem;
+            font-size: .1rem;
+            /*background: red;*/
+           background:#e72c33;
+            color: #fff;
+            position: absolute;
+            line-height: .2rem
+        }
+        /*apple 支付*/
+        
+        .zf_mode ul li .apple p {
+            float: left;
+            width: 30%;
+        }
+        
+        .zf_mode ul li .block-left .apple-icon {
+            background: url(./imgs/apple_icon.png) no-repeat 50% 80%;
+            background-size: 90%;
+        }
+        
+        .zf_mode ul li .apple .Jointly_icon {
+            display: inline-block;
+            width: .65rem;
+            height: .4rem;
+            background: url(./imgs/Jointly_icon.png) no-repeat;
+            background-size: 100%;
+            margin-right: 0.1rem;
+            margin-top: .2rem;
+        }
+        
+        .zf_mode ul li .apple .quick_icon {
+            display: inline-block;
+            width: .65rem;
+            height: .36rem;
+            background: url(./imgs/quick_icon.png) no-repeat;
+            background-size: 100%;
+            margin-top: .2rem;
+        }
+        
+        .zf_mode ul li .block-left .Bank_payment {
+            background: url(./imgs/Bank_icon.png) no-repeat;
+            background-size: 100%;
+        }
+        /*银行卡支付*/
+        
+        .zf_mode ul li .block-left .Bank_payment_icon {
+            background: url(./imgs/Bank_icon.png) no-repeat 50% 80%;
+            background-size: 60%;
+        }
+        /*微信支付*/
+        
+        .zf_mode ul li .block-left .weixin-icon {
+            background: url(./imgs/weixin_icon.png) no-repeat 50% 80%;
+            background-size: 60%;
+        }
+        /*qq支付*/
+        
+        .zf_mode .qq-icon {
+            background: url(./imgs/QQ_icon.png) no-repeat 50% 80%;
+            background-size: 60%;
+        }
+        /**
+		*支付按钮
+		*/
+        
+        .pay_btn {
+            width: 100%;
+            margin: .5rem auto 0 auto;
+        }
+        
+        .pay_btn button {
+            width: 100%;
+            line-height: .6rem;
+            background: linear-gradient(to bottom, #ea3100 0%, #d70100 100%);
+            border: 1px solid #c00400;
+            border-radius: 5px;
+            color: #fff;
+            font-size: .34rem;
+        }
+        .timer{	
+	width:94.7%;
+	height:1.91rem;
+	padding-top:0.71rem;
+	padding-right:5.3%;
+	clear:both;
+	border-bottom:.5px solid #ececec;
+}
+.timer span{
+	display:block;
+	float:left;
+	width:23%;
+	line-height:1.3rem;
+	font-size:.57rem;
+	letter-spacing:0;
+}
+.timer input{
+	width:77%;
+	height:1.33rem;
+	float:left;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	border:1px solid #d2d2d2;
+	border-radius: 2px;
+	box-shadow:0px 2px 1px #f3f3f3 inset;
+	background:url(../img/timer.png) no-repeat;
+	background-size:0.76rem 0.71rem;
+	background-position:95% 45%;
+}
+    </style>
+</head>
 
-	<body>
-	
-    <div class="mui-content">
-    	<!-- 导航 -->
-    	<div id="topNav" class="swiper-container">
-		  <div class="swiper-wrapper">
-		    <div class="swiper-slide active"><a href="###">党建要闻</a></div>
-		    <div class="swiper-slide"><a href="###">四合格四诠释</a></div>
-		    <div class="swiper-slide"><a href="###">党规党纪</a></div>
-		    <div class="swiper-slide"><a href="jicengxiu.html">基层秀</a></div>
-		    <div class="swiper-slide"><a href="###">数据党建</a></div>
-		  </div>
-		</div>
-   	<!-- 导航结束 -->
-    	<!-- 图片轮播 -->
-		<div class="mui-slider">
-			<div id="slider" class="mui-slider">
-				<div class="mui-slider-group mui-slider-loop">
-					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
-					<div class="mui-slider-item mui-slider-item-duplicate">
-						<a href="page4.html">
-							<img src="imgs/biaoti-1.jpg" alt="标题">
-							<p class="mui-slider-title">岁月无语，青春有言—记 “互联网+青年成长交流活动”线下活动</p>
-						</a>
-					</div>
-					<div class="mui-slider-item">
-						<a href="page1.html">
-							<img src="imgs/biaoti-1.jpg">
-							<p class="mui-slider-title">中油瑞飞公司举行纪念建党96周年暨七一表彰大会</p>
-						</a>
-					</div>
-					<div class="mui-slider-item">
-						<a href="page1.html">
-							<img src="imgs/biaoti-1.jpg">
-							<p class="mui-slider-title">落实全面从严治党责任，加强企业党的建设</p>
-						</a>
-					</div>
-					<div class="mui-slider-item">
-						<a href="page1.html">
-							<img src="imgs/biaoti-1.jpg">
-							<p class="mui-slider-title">中油瑞飞公司举办2017年党支部委员培训班</p>
-						</a>
-					</div>
-					<div class="mui-slider-item">
-						<a href="page1.html">
-							<img src="imgs/biaoti-1.jpg">
-							<p class="mui-slider-title">岁月无语，青春有言—记 “互联网+青年成长交流活动”线下活动</p>
-						</a>
-					</div>
-					<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
-					<div class="mui-slider-item mui-slider-item-duplicate">
-						<a href="page1.html">
-							<img src="imgs/biaoti-1.jpg">
-							<p class="mui-slider-title">中油瑞飞公司举行纪念建党96周年暨七一表彰大会</p>
-						</a>
-					</div>
-				</div>
-				<div class="mui-slider-indicator mui-text-right">
-					<div class="mui-indicator mui-active"></div>
-					<div class="mui-indicator"></div>
-					<div class="mui-indicator"></div>
-					<div class="mui-indicator"></div>
-				</div>
-			</div>
+<body>
+   
 
-		</div>
-		<script src="js/mui.min.js"></script>
-		<script type="text/javascript">
-			mui.init({
-				swipeBack:true 
-			});
-		var slider = mui("#slider");
-		document.getElementById("switch").addEventListener('toggle', function(e) {
-			if (e.detail.isActive) {
-				slider.slider({
-					interval: 2000
-				});
-			} else {
-				slider.slider({
-					interval: 0
-				});
-			}
-		});
-		</script>
-  	<!-- 图片轮播结束  -->
-    	<!-- tab 切换 -->
-    	<div class="mui-slider">
-			<!--选项卡标题区-->
-			<div class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tj-hov">
-				  <a class="mui-control-item tj-mui-control-item1" href="#item1">党委</a>
-				  <a class="mui-control-item tj-mui-control-item2" href="#item2">党支部</a>
-			</div>
-			<!--<div class="mui-slider-progress-bar mui-col-xs-4 tj-bottom-bg"></div>-->
-			<div class="mui-slider-group">
-			  <!--第一个选项卡内容区-->
-			  <div id="item1" class="mui-slider-item mui-control-content mui-active">
-			    <ul class="mui-table-view tj-bg">
-				    
-				      <li class="mui-table-view-cell" />
-				      		<div class="sy-c">
-								<div class="sy-c-l">
-									<img src="imgs/biaoti-2.jpg" alt="" />
-								</div>
-								<div class="sy-c-r">
-									专题党课：落实全面从严治党责任，加强企业党的建设，提升党建工作科学化水
-								</div>
-								<p class="sy-a-p"><span>2017/6/30 14:34</span></p>
-							</div>
-				      </li>
-				      <li class="mui-table-view-cell">
-				      	<div class="sy-c">
-								<div class="sy-c-l">
-									 <img src="imgs/bg-12.png" alt=" " />
-								</div>
-								<div class="sy-c-r">
-								中油瑞飞公司举办2017年党支部委员培训班
-								</div>
-								<p class="sy-a-p"><span>2017/6/29 14:34</span></p>
-							</div>
-				      </li>
-				      <li class="mui-table-view-cell">
-				      	<div class="sy-c">
-								<div class="sy-c-l">
-									 <img src="imgs/biaoti-4.jpg" alt=" " />
-								</div>
-								<div class="sy-c-r">
-								岁月无语，青春有言—记 “互联网+青年成长交流活动”线下活动
-								</div>
-								<p class="sy-a-p"><span>2017/6/28 15:34</span></p>
-							</div>
-				      </li>
-			    </ul>
-			  </div>
-			  <!--第二个选项卡内容区，页面加载时为空-->
-			  <div id="item2" class="mui-slider-item mui-control-content">
-			    	<ul class="mui-table-view tj-bg">
-				      <li class="mui-table-view-cell">
-				      		<div class="sy-c">
-								<div class="sy-c-l">
-									<img src="imgs/biaoti-5.jpg" alt="">
-								</div>
-								<div class="sy-c-r">
-									系统集成和信息安全党支部七一主题纪念日活动—参观宋庆龄故居，感受伟人情怀
-								</div>
-								<p class="sy-a-p"><span>2017/6/30 08:34</span></p>
-							</div>
-				      </li>
-				      <li class="mui-table-view-cell" />
-				      		<div class="sy-c">
-								<div class="sy-c-l">
-									<img src="imgs/biaoti-6.jpg" alt="" />
-								</div>
-								<div class="sy-c-r">
-									软件服务一支部召开党员大会
-								</div>
-								<p class="sy-a-p"><span>2017/6/28 09:34</span></p>
-							</div>
-				      </li>
-				      <li class="mui-table-view-cell">
-				      	<div class="sy-c">
-								<div class="sy-c-l">
-									 <img src="imgs/biaoti-7.jpg" alt=" " />
-								</div>
-								<div class="sy-c-r">
-									数字油田第二党支部成功举行演讲比赛
-								</div>
-								<p class="sy-a-p"><span>2017/6/28 10:34</span></p>
-							</div>
-				      </li>
-			    </ul>
-			  </div>
-			  <!--第三个选项卡内容区，页面加载时为空
-			  <div id="item3" class="mui-slider-item mui-control-content"></div>-->
-			</div>
-		</div>
-    	<!-- tab切换结束 -->
+    <div class="mui-segmented-control list">
+        <a class="mui-control-item mui-active" id="pay" href="#pay_platform">党费缴纳</a>
+        <a class="mui-control-item" id="pay_math" href="#pay_hository">党费计算</a>
+        <a class="mui-control-item" id="pay_hository" href="#item2">党费记录</a>
     </div>
-	</body>
-	<script type="text/javascript">
-var mySwiper = new Swiper('#topNav', {
-	freeMode: true,
-	freeModeMomentumRatio: 0.5,
-	slidesPerView: 'auto',
+    <div class="mui-content-padded">
+        <div id="pay_platform" class="content mui-control-centent mui-active">
+        	<!--<div class="timer">
+    			<span>应缴月份：</span>
+				<input id="in" type="text" readonly>
+			</div>-->
 
-});
+            <div class="pay-top">
+                <div class="money_sorting mui-clearfix">
+                    <p class="mui-pull-left">党费类型:</p>
+                    <div class="mui-pull-left money_list">
+                        <button class="money_btn active"><i></i><span>正常</span></button>
+                        <button class="money_btn"><i></i><span>特殊</span></button>
+                        <button class="money_btn"><i></i><span>捐款</span></button>
+                    </div>
+                </div>
+                <div class="money_mun">
+                    <span class="money_text">缴纳金额</span>
+                    <p class="money_number"><strong>￥</strong><input type="text" placeholder="请输入金额" value="100"></p>
+                </div>
+            </div>
+            <div class="zf_mode">
+                <h6>缴纳方式</h6>
+                <ul class="pay-second">
+                    <li>
+                        <span class="block-left">
+							<label class="alipay-icon"></label>
+						</span>
+                        <span class="block-right alipay">
+							
+							<span class="left">
+								<p>支付宝</p>
+								<span class="xiao">成功支付后抽奖赢88元礼卷</span>
+                        </span>
+                        <span class="right active"></span>
 
-swiperWidth = mySwiper.container[0].clientWidth
-maxTranslate = mySwiper.maxTranslate();
-maxWidth = -maxTranslate + swiperWidth / 2
+                        </span>
+                    </li>
+                    <li>
+                        <span class="block-left">
+							<label class="apple-icon"></label>
+						</span>
+                        <span class="block-right apple">
+							<span class="left">
+								<p>Apple Pay</p>
+								<p class="Jointly_icon"></p>
+								<p class="quick_icon"></p>
+							</span>
+                        <span class="right"></span>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="block-left">
+							<label class="Bank_payment_icon"></label>
+						</span>
+                        <span class="block-right">
+							<span class="left">
+								<p>银行卡支付</p>
+							</span>
+                        <span class="right"></span>
+                        </span>
+                    </li>
 
-$(".swiper-container").on('touchstart', function(e) {
-	e.preventDefault()
-})
+                    <li>
+                        <span class="block-left">
+							<label class="weixin-icon"></label>
+						</span>
+                        <span class="block-right">
+							<span class="left">
+								<p>微信支付</p>
+							</span>
+                        <span class="right"></span>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="block-left">
+							<label class="qq-icon"></label>
+						</span>
+                        <span class="block-right">
+							<span class="left">
+								<p>QQ钱包</p></span>
+                        <span class="right"></span>
+                        </span>
+                    </li>
+                    <li>
+                        <div class="pay_btn">
+                            <a href="querenzf.html">
+                                <button>缴纳</button>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
 
-mySwiper.on('tap', function(swiper, e) {
+            </div>
 
-//	e.preventDefault()
+        </div>
+    </div>
+</body>
+<script>
+    window.onload = function() {
+        (function(win, doc) {
+            function changeSize() {
+                doc.documentElement.style.fontSize = 50 * doc.documentElement.clientWidth / 320 + 'px';
+            }
+            changeSize();
+            win.addEventListener('resize', changeSize, false);
+        })(window, document);
 
-	slide = swiper.slides[swiper.clickedIndex]
-	slideLeft = slide.offsetLeft
-	slideWidth = slide.clientWidth
-	slideCenter = slideLeft + slideWidth / 2
-	// 被点击slide的中心点
+        mui.init({
+            subpages: [{
+                url: 'index.html', //子页面HTML地址，支持本地地址和网络地址
+                id: 'pay.html', //子页面标志
+            }]
+        });
 
-	mySwiper.setWrapperTransition(300)
+        $('#pay').on('tap', function() {
+            //打开关于页面
+            mui.openWindow({
+                url: './index.html',
+                id: 'pay'
+            });
+        });
+        $('#pay_math').on('tap', function() {
+            //打开关于页面
+            mui.openWindow({
+                url: './jisuan.html',
+                id: 'pay_math'
+            });
+        });
+        $('#pay_hository').on('tap', function() {
+            //打开关于页面
+            mui.openWindow({
+                url: './pay_hository.html',
+                id: 'pay_hository'
+            });
+        });
 
-	if (slideCenter < swiperWidth / 2) {
-		
-		mySwiper.setWrapperTranslate(0)
 
-	} else if (slideCenter > maxWidth) {
-		
-		mySwiper.setWrapperTranslate(maxTranslate)
+        //选择付款类型
+        $('.money_btn').click(function() {
+            $('.money_btn').each(function() {
+                $('.money_btn').removeClass('active');
+            });
+            $(this).addClass('active');
+        });
+        //选择付款平台
+        $('.pay-second li').click(function() {
+            $('.pay-second li .right').each(function() {
+                $('.pay-second li .right').removeClass('active');
+            });
+            $(this).find('.right').addClass('active');
+        });
 
-	} else {
-
-		nowTlanslate = slideCenter - swiperWidth / 2
-
-		mySwiper.setWrapperTranslate(-nowTlanslate)
-
-	}
-
-	$("#topNav  .active").removeClass('active')
-
-	$("#topNav .swiper-slide").eq(swiper.clickedIndex).addClass('active')
-
-});
+    }
 </script>
+
 </html>
