@@ -37,6 +37,7 @@ html { overflow-x: hidden; font-size:100px; }
 	font-size: 15px;
 }
 #topNav .swiper-slide a{
+	padding-top: 4px;
 	transition:all .3s ease;
 	display:block;
 	color: #000;
@@ -59,8 +60,8 @@ html { overflow-x: hidden; font-size:100px; }
 }
 #topNav .active a{
 	height: 100%;
-    padding-top: 0.05rem;
-	transform:scale(1.1);
+    /*padding-top: 0.05rem;
+	transform:scale(1.1);*/
 	color:#FF2D2D;
 }
 /*首页导航*/
