@@ -54,7 +54,7 @@
             margin-bottom: 0.2rem;
             text-align: center;
             background: #ffffff;
-            margin-top:0.7rem;
+           /* margin-top:0.7rem;*/
         }
         
         .info-t {
@@ -96,9 +96,9 @@
             background-size: 100%;
         }
         
-        .info-box-border {
+        /*.info-box-border {
             border-bottom: 1px solid #999;
-        }
+        }*/
         /*底部样式*/
         
         .cuss-footer {
@@ -112,6 +112,20 @@
             background: #2c76a3;
             margin: 0 0.1rem;
             display: inline-block;
+        }
+        .btn{
+        	width:100%;
+        	padding-top:0.5rem;
+        	display:flex;
+        	justify-content: center;
+        }
+        .btn button{
+        	width:80%;
+        	color:#000;
+        	font-size:0.4rem;
+        	line-height:0.8rem;
+        	outline: none;
+        	border:0.5px solid #ccc;
         }
     </style>
 </head>
@@ -161,6 +175,9 @@
     </div>
     <div class="cuss-footer">
         <span>对此订单有疑问</span><i></i><span>投诉</span>
+    </div>
+    <div class="btn">
+    		<button>完成</button>
     </div>
 </body>
 <script type="text/javascript">

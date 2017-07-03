@@ -98,8 +98,8 @@
     	<!-- tab 切换 -->
     	<div class="mui-slider">
 			<!--选项卡标题区-->
-			<div class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tj-hov">
-				  <a class="mui-control-item tj-mui-control-item1" href="#item1">党委</a>
+			<div class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted tj-hov tab">
+				  <a class="mui-control-item tj-mui-control-item1 bg-on" href="#item1">党委</a>
 				  <a class="mui-control-item tj-mui-control-item2" href="#item2">党支部</a>
 			</div>
 			<!--<div class="mui-slider-progress-bar mui-col-xs-4 tj-bottom-bg"></div>-->
@@ -186,6 +186,13 @@
 			</div>
 		</div>
     	<!-- tab切换结束 -->
+    	<script type="text/javascript">
+    		$(function(){
+	    		 $('.tab a').on("touchend", function(){
+	                $(this).addClass('bg-on').siblings().removeClass('bg-on');
+	            });
+        	 });
+    	</script>
     </div>
 	</body>
 	<script type="text/javascript">
@@ -234,8 +241,8 @@
 
 		$("#topNav  .active").removeClass('active')
 	
-		$("#topNav .swiper-slide").eq(swiper.clickedIndex).addClass('active')
-	
+		$("#topNav .swiper-slide").eq(swiper.clickedIndex).addClass('active') 
+		
 	});
 </script>
 </html>

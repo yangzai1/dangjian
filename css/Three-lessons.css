@@ -1,0 +1,7 @@
+/* 三会一课*/
+.mui-segmented-control{background-color: #f6f6f6;font-size: 15px;}
+.mui-col-xs-4{width: 27%;}
+.mui-segmented-control.mui-segmented-control-inverted~.mui-slider-progress-bar {background-color: #d70000;}
+.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {color:#d70000 ;}
+.mui-table-view-cell p:nth-of-type(1){font-size: 15px; line-height: 0.6rem;margin-bottom: 0.05rem;word-wrap: break-word;color: #000;padding: 10px 10px;}
+.mui-table-view-cell p:nth-of-type(2){font-size:15px; line-height: 0.6rem; color: #a0a0a0;padding-left: 0.1rem;padding:5px 10px;}
